@@ -90,7 +90,7 @@ function load_cfg($file) {
         $content = [System.IO.File]::ReadAllLines($file)
         return ($content | ConvertFrom-Json -ErrorAction Stop)
     } catch {
-        Write-Host "ERROR loading $file`: $($_.exception.message)"
+        error "loading $file`: $($_.exception.message)"
     }
 }
 
@@ -276,7 +276,7 @@ function Invoke-GitLog {
             }
             $Name = "%Cgreen$($Name.PadRight(12, ' ').Substring(0, 12))%Creset "
         }
-        Invoke-Git -Path $Path -ArgumentList @('--no-pager', 'log', '--color', '--no-decorate', "--grep='^(chore)'", '--invert-grep', '--abbrev=12', "--format=tformat: * %C(yellow)%h%Creset %<|(72,trunc)%s $Name%C(cyan)%cr%Creset", "$CommitHash..HEAD")
+        Invoke-Git -Path $Path -ArgumentList @('--no-pager', 'log', '--color', '--no-decorate', '--grep=^(chore)', '--invert-grep', '--abbrev=12', "--format=tformat: * %C(yellow)%h%Creset %<|(72,trunc)%s $Name%C(cyan)%cr%Creset", "$CommitHash..HEAD")
     }
 }
 
@@ -622,7 +622,14 @@ function Get-AbsolutePath {
         $Path
     )
     process {
-        return $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Path)
+        $resolvedPath = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Path)
+        if ($resolvedPath -match '[\\/]$') {
+            $root = [System.IO.Path]::GetPathRoot($resolvedPath)
+            if ($resolvedPath -ine $root) {
+                $resolvedPath = $resolvedPath.TrimEnd([char[]]@('\', '/'))
+            }
+        }
+        return $resolvedPath
     }
 }
 
