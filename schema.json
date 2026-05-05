@@ -461,6 +461,10 @@
                     "type": "string"
                 },
                 {
+                    "pattern": "^(.*)$",
+                    "type": "string"
+                },
+                {
                     "items": {
                         "format": "uri",
                         "type": "string"
