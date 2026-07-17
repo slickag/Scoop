@@ -71,7 +71,7 @@
 #       Displays the manifest of every app that's about to
 #       be installed, then asks user if they wish to proceed.
 #
-# shim: kiennq|scoopcs|71
+# shim: kiennq|cs|71
 #       Choose scoop shim build.
 #
 # root_path: $Env:UserProfile\scoop
