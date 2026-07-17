@@ -182,6 +182,7 @@ function create_shims($manifest, $dir, $global, $arch) {
     $shims | Where-Object { $_ -ne $null } | ForEach-Object {
         $target, $name, $arg = shim_def $_
         Write-Output "Creating shim for '$name'."
+        $dir = (Get-Item $dir).ResolvedTarget
 
         if (Test-Path "$dir\$target" -PathType leaf) {
             $bin = "$dir\$target"
