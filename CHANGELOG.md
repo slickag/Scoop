@@ -2,6 +2,7 @@
 
 ### Features
 
+- **install:** Add support for historical manifests by git history ([#6370](https://github.com/ScoopInstaller/Scoop/issues/6370))
 - **install:** Add output for the setting and removal of environment variables ([#6460](https://github.com/ScoopInstaller/Scoop/issues/6460))
 - **scoop-uninstall:** Allow access to `$bucket` in uninstall scripts ([#6380](https://github.com/ScoopInstaller/Scoop/issues/6380))
 - **install:** Add separator at the end of notes, highlight suggestions ([#6418](https://github.com/ScoopInstaller/Scoop/issues/6418))
@@ -52,6 +53,10 @@
 ### Continuous Integration
 
 - **workflow:** Drop Appveyor support and refactor GitHub Actions workflow ([#6626](https://github.com/ScoopInstaller/Scoop/issues/6626))
+
+### Tests
+
+- **bucket:** Compatible with Pester v6 ([#6724](https://github.com/ScoopInstaller/Scoop/issues/6724))
 
 ## [v0.5.3](https://github.com/ScoopInstaller/Scoop/compare/v0.5.2...v0.5.3) - 2025-08-11
 
