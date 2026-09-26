@@ -8,5 +8,7 @@
     "nerd-fonts": "https://github.com/matthewjberger/scoop-nerd-fonts",
     "nonportable": "https://github.com/ScoopInstaller/Nonportable",
     "java": "https://github.com/ScoopInstaller/Java",
-    "games": "https://github.com/ScoopInstaller/Games"
+    "games": "https://github.com/ScoopInstaller/Games",
+    "knick-knacks": "https://github.com/verymucho/knick-knacks",
+    "local-scoops": "http://git.statik.win/AG/local-scoops"
 }
