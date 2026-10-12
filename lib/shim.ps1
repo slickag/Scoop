@@ -327,21 +327,6 @@ function Get-ShimTemplate {
             } else {
                 warn "'$Source' is not installed - falling back to the builtin one."
             }
-            # TODO: delete this region together with the supporting\shims\<lane>\ directories,
-            # whose .to_be_removed marker says the same. 'shim' used to name one of the three
-            # lanes bundled in the tree, and those lanes ship as packages now.
-            #region shim lanes that are no longer bundled
-            $lanes = @{
-                '71'      = 'scoop-shim-cpp'
-                'kiennq'  = 'scoop-shim-kiennq'
-                'scoopcs' = 'scoop-shim-cs'
-            }
-            if ($lanes.ContainsKey($Source)) {
-                warn "'$Source' is no longer a builtin shim source, you can restore it by installing and configuring to '$($lanes[$Source])':"
-                warn "    scoop install $($lanes[$Source])"
-                warn "    scoop config shim $($lanes[$Source])"
-            }
-            #endregion shim lanes that are no longer bundled
             $script:shimWarned[$key] = $true
         }
     }
