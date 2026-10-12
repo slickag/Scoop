@@ -63,5 +63,5 @@ $apps | Where-Object { !$query -or ($_.name -match $query) } | ForEach-Object {
             Info    = $info
         }
     }
-} | Add-Member -TypeName 'ScoopApps' -PassThru
+} | Add-Member -TypeName 'ScoopApps' -PassThru | Format-Table -AutoSize
 exit 0
